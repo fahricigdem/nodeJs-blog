@@ -1,6 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const Blog = require('./models/blogs')
+
 const app = express();
 
 const dbURL = 'mongodb+srv://fahri:asd123@nodeblog.i6tpq.mongodb.net/node-blog?retryWrites=true&w=majority'
@@ -12,6 +14,44 @@ app.set('view engine', 'ejs');
 
 app.use(express.static('public'))
 app.use(morgan('dev'))
+
+app.get('/add', (req, res) => {
+
+    const blog = new Blog({
+        title: 'yeni yazi2',
+        short: 'kisa aciklama',
+        long: 'uzun aciklama'
+    })
+
+    blog.save()
+        .then((result) => {
+            res.send(result)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+})
+
+app.get('/all', (req, res) => {
+    Blog.find()
+        .then((result) => {
+            res.send(result)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+})
+
+app.get('/single', (req, res) => {
+    Blog.findById('6117ff9bd0cb6d5b9255b631')
+        .then((result) => {
+            res.send(result)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+})
+
 
 
 app.get('/', (req, res) => {

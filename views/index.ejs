@@ -7,18 +7,14 @@
     <%-include('./inc/nav')%>
     <section>
         <ul>
+            <%blogs.forEach((blog)=>{%>
             <li>
-                <a href="#">Blog 1</a>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur doloribus est officia!</p>
+                <a href="/blog/<%=blog._id%>">
+                    <%=blog.title%>
+                </a>
+                <p><%=blog.short%></p>
             </li>
-            <li>
-                <a href="#">Blog 2</a>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur doloribus est officia!</p>
-            </li>
-            <li>
-                <a href="#">Blog 3</a>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur doloribus est officia!</p>
-            </li>
+            <%})%>
         </ul>
     </section>
 

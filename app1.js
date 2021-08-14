@@ -25,19 +25,6 @@ app.get('/', (req, res) => {
         })
 })
 
-
-app.get('/blog/:id', (req, res) => {
-    const id = req.params.id
-
-    Blog.findById(id)
-        .then((result) => {
-            res.render('blog', { blog: result, title: 'Blog Detail' })
-        })
-        .catch((err) => {
-            res.status(404).render('404', { title: 'Page is not found' })
-        })
-})
-
 app.get('/about', (req, res) => {
     res.render('about', { title: 'About Us' })
 })

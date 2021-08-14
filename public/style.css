@@ -1,0 +1,43 @@
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-bottom: 3px solid #000;
+}
+
+nav ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+nav ul li{
+     margin-right: .8vw;
+}
+
+section{
+    max-width: 50%;
+    margin: 40px auto;
+}
+
+@media only screen and (max-width: 600px) {
+    section {
+        max-width: 95%;
+        margin: 40px auto;
+    }
+    section form{
+        max-width: 80%;
+    }
+  }
+
+  form{
+      display:flex;
+      flex-direction: column;
+      max-width: 30%;
+      margin: 80px auto;
+  }
+
+  form input{
+      margin-top: 10px;
+      padding: 5px 10px;
+  }

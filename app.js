@@ -6,7 +6,9 @@ app.set('view engine', 'ejs');
 
 app.listen(3000)
 
+app.use(express.static('public'))
 app.use(morgan('dev'))
+
 
 app.get('/', (req, res) => {
     res.render('index', { title: 'Home Page' })
@@ -18,6 +20,10 @@ app.get('/about', (req, res) => {
 
 app.get('/aboutus', (req, res) => {
     res.redirect('/about')
+})
+
+app.get('/login', (req, res) => {
+    res.render('login', { title: 'Login' })
 })
 
 app.use((req, res) => {

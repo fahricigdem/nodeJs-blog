@@ -6,14 +6,15 @@
 <body>
     <%-include('./inc/nav')%>
     <section>
+        <a href="/admin/add">+ Add Blog</a>
         <h1>Blogs</h1>
         <ul>
             <%blogs.forEach((blog)=>{%>
             <li>
-                <a href="/blog/<%=blog._id%>">
+                <p>
                     <%=blog.title%>
-                </a>
-                <p><%=blog.short%></p>
+                </p>
+                <a href="">Sil</a>
             </li>
             <%})%>
         </ul>

@@ -22,8 +22,8 @@ app.get('/', (req, res) => {
     res.redirect('/blog')
 })
 
-app.use('/blog', blogRoutes)
-app.use('/admin', adminRoutes)
+app.use(blogRoutes)
+app.use(adminRoutes)
 
 
 app.get('/about', (req, res) => {

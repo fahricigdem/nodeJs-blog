@@ -50,12 +50,10 @@ app.get('/admin', (req, res) => {
 })
 
 app.get('/admin/add', (req, res) => {
-
     res.render('add', { title: 'Add Blog' })
 })
 
 app.post('/admin/add', (req, res) => {
-
     const blog = new Blog(req.body)
 
     blog.save()
@@ -66,19 +64,6 @@ app.post('/admin/add', (req, res) => {
             console.error(err)
         })
 })
-
-app.delete('/admin/delete/:id', (req, res) => {
-    const id = req.params.id
-
-    Blog.findByIdAndDelete(id)
-        .then((result) => {
-            res.json({ link: '/admin' })
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-})
-
 
 app.get('/about', (req, res) => {
     res.render('about', { title: 'About Us' })

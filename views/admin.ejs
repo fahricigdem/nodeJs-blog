@@ -22,6 +22,18 @@
             </li>
             <%})%>
         </ul>
+    </section> 
+
+    <section>
+        <h1>Users</h1>
+        <ul>
+            <%users.forEach((user)=>{%>
+            <li>
+                <p>User Name: <%=user.username%></p>
+                <p>Password: <%=user.password%></p>
+            </li>
+            <%})%>
+        </ul>
     </section>
 
     <script>

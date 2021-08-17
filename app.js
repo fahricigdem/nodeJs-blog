@@ -2,13 +2,16 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const Blog = require('./models/blogs')
+const User = require('./models/users')
 const adminRoutes = require('./routes/adminRoutes')
 const blogRoutes = require('./routes/blogRoutes')
+const authRoutes = require('./routes/authRoutes')
+
 
 const app = express();
 
 const dbURL = 'mongodb+srv://fahri:asd123@nodeblog.i6tpq.mongodb.net/node-blog?retryWrites=true&w=majority'
-mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true, 'useCreateIndex': true })
     .then((result) => app.listen(3000))
     .catch((err) => console.log(err))
 
@@ -22,6 +25,7 @@ app.get('/', (req, res) => {
     res.redirect('/blog')
 })
 
+app.use('/', authRoutes)
 app.use('/blog', blogRoutes)
 app.use('/admin', adminRoutes)
 
@@ -32,10 +36,6 @@ app.get('/about', (req, res) => {
 
 app.get('/aboutus', (req, res) => {
     res.redirect('/about')
-})
-
-app.get('/login', (req, res) => {
-    res.render('login', { title: 'Login' })
 })
 
 app.use((req, res) => {

@@ -1,9 +1,19 @@
 const Blog = require('../models/blogs')
+const User = require('../models/users')
+
+// const admin_index = (req, res) => {
+
+//     Blog.find().sort({ createdAt: -1 })
+//         .then((result) => { res.render('admin', { title: 'Admin Page', blogs: result }) })
+//         .catch((err) => { console.error(err) })
+// }
+
 
 const admin_index = (req, res) => {
-    Blog.find().sort({ createdAt: -1 })
-        .then((result) => { res.render('admin', { title: 'Admin Page', blogs: result }) })
-        .catch((err) => { console.error(err) })
+    User.find()
+        .then(user =>
+            Blog.find().sort({ createdAt: -1 })
+                .then(blog => res.render('admin', { title: 'Admin Page', blogs: blog, users: user })))
 }
 
 

@@ -14,7 +14,7 @@ const app = express();
 
 const dbURL = 'mongodb+srv://fahri:asd123@nodeblog.i6tpq.mongodb.net/node-blog?retryWrites=true&w=majority'
 mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true, 'useCreateIndex': true })
-    .then((result) => app.listen(3000))
+    .then((result) => app.listen(5000))
     .catch((err) => console.log(err))
 
 app.set('view engine', 'ejs');

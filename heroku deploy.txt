@@ -1,0 +1,19 @@
+0. in package.json dont forget this in script---> "start":"node app.js"
+
+1.Heroku CLI Instal on Macbook
+
+- brew tap heroku/brew && brew install heroku
+
+2.To login Browser will be openned self.
+
+-heroku login
+
+3. server listen must be:      .listen(process.env.PORT || 5000)
+
+- heroku local web
+
+4. Then Deploy...
+
+- heroku create
+
+5. On Heroku page you can bind github with heroku on deploy tab, then git push will be deployed automatically.

@@ -6,7 +6,10 @@
 <body>
     <%-include('./inc/nav')%>
     <section>
-        <a href="/admin/add">+ Add Blog</a>
+        <a href="/admin/add"
+        style=' color:blueviolet; background-color:greenyellow; padding:5px;border-radius: 20%;cursor:pointer;'>
+        + Add Blog
+    </a>
         <h1>Blogs</h1>
         <ul>
             <%blogs.forEach((blog)=>{%>
@@ -16,6 +19,7 @@
                 </p>
                 <a class="del" 
                 data-doc="<%=blog._id%>"
+                style='color:yellow; background-color:black; padding:5px;border-radius: 20%;cursor:pointer;'
                 >
                     delete
                 </a>

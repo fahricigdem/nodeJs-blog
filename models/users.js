@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-
-
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -15,6 +13,19 @@ const userSchema = new mongoose.Schema({
     }
 }, { timestamps: true })
 
+userSchema.statics.login = async function (username, password) {
+    const user = await this.findOne({ username })
+    if (user) {
+        const auth = await bcrypt.compare(password, user.password)
+        if (auth) {
+            return user
+        } else {
+            throw Error('password is not correct')
+        }
+    } else {
+        throw Error('no user')
+    }
+}
 
 userSchema.pre('save', async function (next) {
     const salt = await bcrypt.genSalt()

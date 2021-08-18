@@ -6,10 +6,7 @@
 <body>
     <%-include('./inc/nav')%>
     <section>
-        <a href="/admin/add"
-        style=' color:blueviolet; background-color:greenyellow; padding:5px;border-radius: 20%;cursor:pointer;'>
-        + Add Blog
-    </a>
+
         <h1>Blogs</h1>
         <ul>
             <%blogs.forEach((blog)=>{%>
@@ -26,8 +23,13 @@
             </li>
             <%})%>
         </ul>
+        <br>
+        <a href="/admin/add"
+        style=' color:blueviolet; background-color:greenyellow; padding:5px;border-radius: 20%;cursor:pointer;'>
+        + Add Blog
+    </a>
     </section> 
-
+<br><br><br>
     <section>
         <h1>Users</h1>
         <ul>

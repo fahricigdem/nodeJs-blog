@@ -12,7 +12,12 @@ nav ul{
 }
 
 nav ul li{
-     margin-right: .8vw;
+          padding: .5vw;
+
+}
+
+nav ul li:hover{
+    background-color: yellow
 }
 
 section{

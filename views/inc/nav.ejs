@@ -1,13 +1,26 @@
 <nav>
     <h1>Node Blog</h1>
     <ul>
-        <li><a href="/">Home Page</a></li>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/admin">Add</a></li>
+        <li><a href="/" style="text-decoration: none">Home Page</a></li> 
+        <li><a href="/about" style="text-decoration: none">About Us</a></li> 
+        <li><a href="/admin" style="text-decoration: none">Add Blog</a></li> 
         <%if (user){%>
-            <li><a href="/logout">Logout <br><span style="color:green">Hi <%=user.username%>!</span></a></li>
+            <li style=' background-color:rgb(189, 124, 189); border-radius: 10%;'>
+                <a href="/logout"
+                style="color:white; text-decoration: none">
+                    Log out <br><span style="color:hsl(84, 95%, 50%)">Hi <%=user.username%>!</span></a></li>
         <%}else{%>
-            <li><a href="/login">Login</a></li>
+            <li><a 
+                href="/login"
+                style="text-decoration: none">
+                Log in 
+            </a></li>
+            <li style="color: rgb(175, 170, 170);">or</li>
+            
+            <li style=' background-color:rgb(189, 124, 189); border-radius: 10%;'>
+                <a href="/signup" style="color:white; text-decoration: none"
+                >Sign up</a>
+            </li>
         <%}%>
     </ul>
 </nav>

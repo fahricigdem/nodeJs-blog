@@ -25,6 +25,7 @@ app.use(morgan('dev'))
 app.use(cookieParser())
 
 app.get('*', checkUser)
+
 app.get('/', (req, res) => {
     res.redirect('/blog')
 })

@@ -5,9 +5,10 @@
 </head>
 <body>
     <%-include('./inc/nav')%>
+    <div class="container"></div>
     <section>
         <h1>Blogs</h1>
-        <ul>
+        <!-- <ul>
             <%blogs.forEach((blog)=>{%>
             <li>
                 <a href="/blog/<%=blog._id%>">
@@ -16,9 +17,27 @@
                 <p><%=blog.short%></p>
             </li>
             <%})%>
-        </ul>
+        </ul> -->
 
-    </section>
     
+
+    <%blogs.forEach((blog)=>{%>
+    <div class="card text-center mt-5">
+
+        <div class="card-body">
+          <h5 class="card-title"><%=blog.title%></h5>
+          <p class="card-text"><%=blog.short%></p>
+          <a href="/blog/<%=blog._id%>" class="btn btn-primary">Read the Blog</a>
+        </div>
+        <div class="card-footer text-muted">
+            <%=blog.createdAt.toString().slice(0, 15)%>
+        </div>
+      </div>
+      <%})%>
+    </div>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 </body>
 </html>

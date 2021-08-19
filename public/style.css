@@ -1,4 +1,4 @@
-nav{
+/* nav{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -13,12 +13,13 @@ nav ul{
 
 nav ul li{
           padding: .5vw;
+          padding-top: .7vw;
 
 }
 
 nav ul li:hover{
     background-color: yellow
-}
+} */
 
 section{
     max-width: 60%;
@@ -38,7 +39,7 @@ section{
   form{
       display:flex;
       flex-direction: column;
-      max-width: 30%;
+      max-width: 60%;
       margin: 80px auto;
   }
 

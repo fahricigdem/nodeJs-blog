@@ -1,11 +1,13 @@
-<nav>
+<!-- <nav>
     <h1>Node Blog</h1>
     <ul>
         <li><a href="/" style="text-decoration: none">Home Page</a></li> 
         <li><a href="/about" style="text-decoration: none">About Us</a></li> 
         <li><a href="/admin" style="text-decoration: none">Add Blog</a></li> 
         <%if (user){%>
-            <li style=' background-color:rgb(189, 124, 189); border-radius: 10%;'>
+            <li style=' background-color:rgb(189, 124, 189); border-radius: 10%;'
+            
+            >
                 <a href="/logout"
                 style="color:white; text-decoration: none">
                     Log out <br><span style="color:hsl(84, 95%, 50%)">Hi <%=user.username%>!</span></a></li>
@@ -15,12 +17,54 @@
                 style="text-decoration: none">
                 Log in 
             </a></li>
-            <li style="color: rgb(175, 170, 170);">or</li>
+            <li style="color: rgb(175, 170, 170); background-color: white">or</li>
             
             <li style=' background-color:rgb(189, 124, 189); border-radius: 10%;'>
                 <a href="/signup" style="color:white; text-decoration: none"
+                onMouseOver="this.style.color='#0F0'"
+   onMouseOut="this.style.color='#FFF'"
                 >Sign up</a>
             </li>
         <%}%>
     </ul>
-</nav>
+</nav> -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Node Blog</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link active" aria-current="page" href="/">Blogs</a>
+          <a class="nav-link" href="/about">About Us</a>
+          <a class="nav-link" href="/admin">Add Blog</a>
+
+          <%if (user){%>
+            <a class="nav-link" href="/logout">
+                Log out
+                
+            </a>
+            <!-- <a class="nav-link" href="#" style="color:hsl(84, 95%, 50%)">Hi <%=user.username%>!</a> -->
+            <%}else{%>
+
+                <a class="nav-link"
+                href="/login"
+                >
+                Log in 
+            </a>
+            <%}%>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<%if (user){%>
+    <center>
+    <div class="alert alert-success" role="alert">
+        <h2 style="color:#44F">Hi <%=user.username%>!</h2>
+      </div>
+</center>
+<%}%>
+

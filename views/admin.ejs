@@ -5,10 +5,12 @@
 </head>
 <body>
     <%-include('./inc/nav')%>
+    <div class="container">
     <section>
-
+        
         <h1>Blogs</h1>
-        <ul>
+
+        <!-- <ul>
             <%blogs.forEach((blog)=>{%>
             <li>
                 <p>
@@ -27,23 +29,44 @@
         <a href="/admin/add"
         style=' color:blueviolet; background-color:greenyellow; padding:5px;border-radius: 20%;cursor:pointer;'>
         + Add Blog
-    </a>
+    </a> -->
+    
+        <%blogs.forEach((blog)=>{%>
+        <div class="card text-center mt-5">
+    
+            <div class="card-body">
+              <h5 class="card-title"><%=blog.title%></h5>
+              <p class="card-text"><%=blog.short%></p>
+              <a href="/blog/<%=blog._id%>" class="btn btn-danger del" data-doc="<%=blog._id%>">delete</a>
+            </div>
+    
+          </div>
+          <%})%>
+        <center>
+            <a href="/admin/add" >
+                <button  type="button" class="btn btn-success mt-3">+ Add Blog</button>
+            </a>
+        </center>
     </section> 
-<br><br><br>
+
+    <br>
+
     <section>
         <h1>Users</h1>
-        <ul>
-            <%users.forEach((user)=>{%>
-            <li>
-                <p>User Name: <%=user.username%></p>
-                <p>Password: <%=user.password%></p>
-            </li>
-            <%})%>
-        </ul>
+        <div class="card mt-3" >
+            <ul class="list-group list-group-flush">
+                <%users.forEach((user)=>{%>
+              <li class="list-group-item mt-3">
+                  <p>User Name: <%=user.username%></p>
+                  <p>Password: <%=user.password%></p>
+                </li>
+                <%})%>
+            </ul>
+          </div>
     </section>
 
+</div>
     <script>
-        
         const del=document.querySelectorAll('a.del')
         const delLinks=[].slice.call(del)
         delLinks.forEach((item,i)=>{
@@ -59,10 +82,9 @@
                 console.log(err)
             })
         })
-        })
-        
+        }) 
     </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 </body>
 </html>
 

@@ -43,6 +43,11 @@ app.get('/aboutus', (req, res) => {
     res.redirect('/about')
 })
 
+app.get('/signuperror', (req, res) => {
+    res.render('signuperror', { title: 'Error' })
+})
+
+
 app.use((req, res) => {
     res.status(404).render('404', { title: 'Page is not found' })
 })

@@ -32,7 +32,11 @@ const signup_post = (req, res) => {
     const user = new User(req.body)
     user.save()
         .then((result) => { res.redirect('/login') })
-        .catch((err) => { console.error(err) })
+        .catch((err) => {
+            console.error(err)
+            res.redirect('/signuperror')
+
+        })
 }
 
 const logout_get = (req, res) => {
